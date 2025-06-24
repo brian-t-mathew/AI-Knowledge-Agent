@@ -3,8 +3,9 @@ import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 import uuid
 from datetime import datetime
+import os
 
-API_BASE = "http://127.0.0.1:8000"
+API_BASE = os.getenv("API_BASE", "http://localhost:8000")
 
 if "access_token" not in st.session_state:
     st.session_state.access_token = None

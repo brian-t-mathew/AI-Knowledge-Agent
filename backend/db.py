@@ -15,7 +15,7 @@ async def init_db():
     global client, db, user_collection, chat_history_collection
     try:
         client = motor.motor_asyncio.AsyncIOMotorClient(
-            os.getenv("MONGODB_URI"),
+            os.getenv("MONGODB_ATLAS_URI"),
             maxPoolSize=10,
             minPoolSize=2,
             serverSelectionTimeoutMS=5000
@@ -24,7 +24,7 @@ async def init_db():
         # Verify connection
         await client.admin.command('ping')
         
-        db = client["chatbot_db"]
+        db = client["chatbot_vectors"]
         user_collection = db["users"]
         chat_history_collection = db["chat_history"]
         
