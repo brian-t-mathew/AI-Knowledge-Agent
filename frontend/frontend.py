@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime
 import os
 
-API_BASE = os.getenv("API_BASE", "http://localhost:8000")
+API_BASE = "https://ai-agent-backend-ks7r.onrender.com"
 
 if "access_token" not in st.session_state:
     st.session_state.access_token = None
